@@ -37,7 +37,7 @@ html{
     width: 70px;
     height: 70px;
     list-style-type: none;
-    margin: 0 25px;
+    margin: 0 20px;
     position: relative;
     z-index: 1;    
 }
@@ -64,11 +64,11 @@ html{
     opacity: 0;
     transition: .5s;
     text-align: center;
-    transform: translateY(20px);
+    transform: translateY(24px);
     padding: 5px;
 }
 .navegacao ul li.ativo a .icone{
-    transform: translateY(-40px);
+    transform: translateY(-43px);
     color: #fff;
 }
 .navegacao ul li.ativo a .texto{
@@ -207,8 +207,6 @@ section .title::after{
     align-items: center;
     justify-content: space-between;
 }
-
-
 .navbar .menu li{
     list-style: none;
     display: inline-block;
@@ -226,6 +224,30 @@ section .title::after{
 }
 .navbar.sticky .menu li a:hover{
     color: #fff;
+}
+
+.lista-play{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listaPlay{
+    width: 70px;
+    height: 100%;
+    background: rgb(238, 44, 83);
+    color: #fff;
+    display: flex;
+    border-radius: 50% ;
+    transform: translateY(-35px);
+    cursor: pointer;
+    transition: .5s;
+    
+}
+.listaPlay:hover{
+    background: var(--Amarelo-escuro);
+}
+.listaPlay a{
+    font-size: 40px;
 }
 
 /* menu btn styling */
@@ -262,7 +284,6 @@ section .title::after{
 .scroll-up-btn:hover{
     filter: brightness(90%);
 }
-
 
 /* home section styling */
 .home{
@@ -527,7 +548,8 @@ a button{
 /* teams section styling */
 .teams .title::after{    
     content: "Rei da Glória JESUS";
-    
+    margin: 15px 0px 0px;
+    text-align: center;
 }
 .teams .carousel .card{
     background: #222;
@@ -693,13 +715,77 @@ a button{
 }
 
 /* responsive media query start */
+@media (max-width: 480px) {
+    .home .home-content{
+        position: relative;
+        top: -200px;
+    }
+    .home .home-content a{
+        position: relative;
+        bottom: -350px;
+        width: 280px;
+        height: 50px;
+        right: -70px;
+    }
+    .home .home-content .text-1{
+        font-size: 20px;
+        margin: -5px 0;
+    }   
+    .home .home-content .text-2{
+        font-size: 50px;
+        
+    }
+    .home .home-content .text-3{
+        font-size: 27px;
+        margin: -5px 0px;
+    }
+    .text-2 span{
+        color: var(--Amarelo-escuro);
+    }
+
+    .teams .title::after{    
+        top: 50px;        
+    }
+    .home{
+        display: flex;
+        background: url("https://archive.org/download/wallpaper-site_202306/wallpaper%20site.png") no-repeat center;
+        height: 100vh;
+        color: #fff;    
+        background-size: cover;
+        background-position-x: -500px;                
+        background-attachment: fixed;
+        font-family: 'Poppis', sans-serif;    
+    }
+    
+    .about .about-content .right .text,
+    .skills .skills-content .left .text{
+        font-size: 19px;
+    }
+    .contact .right form .fields{
+        flex-direction: column;
+    }
+    .contact .right form .name,
+    .contact .right form .email{
+        margin: 0;
+    }
+    .right form .error-box{
+       width: 150px;
+    }
+    .scroll-up-btn{
+        right: 15px;
+        bottom: 15px;
+        height: 38px;
+        width: 35px;
+        font-size: 23px;
+        line-height: 38px;
+    }
+}
 @media (max-width: 1104px) {
     .about .about-content .left img{
         height: 350px;
         width: 350px;
     }
 }
-
 @media (max-width: 991px) {
     .max-width{
         padding: 0 50px;
@@ -769,7 +855,6 @@ a button{
         margin-bottom: 35px;
     }
 }
-
 @media (max-width: 690px) {
     .max-width{
         padding: 0 23px;
@@ -942,6 +1027,104 @@ a button{
         width: 35px;
         font-size: 23px;
         line-height: 38px;
-    }
+    } 
 }
 
+.container {
+    width: 50px;
+    height: 50px;
+    background: #0f117a;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #app {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  #app:active {
+    transform: scale(0.9);
+  }
+  
+  .pause,
+  .play {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: absolute;
+  }
+  
+  .line {
+    position: absolute;
+    width: 6px;
+    height: 50%;
+    background: #ffffff;
+    border-radius: 5px;
+    transition: all 400ms cubic-bezier(0.8, 0, 0.33, 1);
+  }
+  
+  .pause .line_1 {
+    margin: 25% 0;
+    left: 28%;
+  }
+  .pause .line_2 {
+    margin: 100% -16%;
+    right: 45%;
+    transition-delay: 200ms;
+  }
+  .pause.active .line {
+    opacity: 1;
+  }
+  .pause.active .line_1 {
+    margin: 25% 0;
+    left: 28%;
+  }
+  .pause.active .line_2 {
+    margin: 25% 0;
+    right: 28%;
+  }
+  
+  .play .line {
+    margin: 25% 0;
+  }
+  .play .line_1 {
+    left: 28%;
+  }
+  .play .line_2 {
+    height: 56%;
+    left: 60%;
+    transform: rotate(-55deg) translateY(-128px) translateX(16px);
+    transition-delay: 100ms;
+  }
+  .play .line_3 {
+    height: 56%;
+    left: 60%;
+    transform: rotate(55deg) translateY(-128px) translateX(16px);
+    transition-delay: 200ms;
+  }
+  .play.active .line {
+    opacity: 1;
+    height: 62%;
+    margin: 20% 0;
+  }
+  .play.active .line_1 {
+    left: 28%;
+    transform: translateY(-2px);
+  }
+  .play.active .line_2 {
+    height: 56%;
+    left: 63%;
+    transform: rotate(-55deg) translateY(-16.5px) translateX(2px);
+  }
+  .play.active .line_3 {
+    height: 56%;
+    left: 63%;
+    transform: rotate(55deg) translateY(16px) translateX(2px);
+  }
